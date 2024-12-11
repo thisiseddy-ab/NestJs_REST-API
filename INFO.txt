@@ -1,0 +1,6 @@
+
+#### Install Cli ###
+npm install -g @nestjs/cli
+
+#### Create Project ###
+nest new nestjs-restapi
