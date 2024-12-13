@@ -4,3 +4,18 @@ npm install -g @nestjs/cli
 
 #### Create Project ###
 nest new nestjs-restapi
+
+#### Start Dev Application ####
+nest start
+
+#### Run Docker Compose ####
+docker compose up dev-db -d
+
+#### Install Prisma CLI ####
+npm install prisma --save-dev
+
+#### Install Prisma Client ####
+npm install @prisma/client
+
+#### Initilize Prisma ####
+npx prisma init
