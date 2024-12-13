@@ -19,3 +19,15 @@ npm install @prisma/client
 
 #### Initilize Prisma ####
 npx prisma init
+
+#### Generate Dev Prisma Schema ####
+npx prisma migrate dev
+
+#### Run Prisma Studio ####
+npx prisma studio
+
+#### Generate a Module ####
+nest g module prisma
+
+#### Generate a Servce ####
+nest g service prisma
