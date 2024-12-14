@@ -5,8 +5,11 @@ npm install -g @nestjs/cli
 #### Create Project ###
 nest new nestjs-restapi
 
-#### Start Dev Application ####
+#### Start Production Application ####
 nest start
+
+#### Start Dev Application ####
+npm run start:dev
 
 #### Run Docker Compose ####
 docker compose up dev-db -d
@@ -31,3 +34,9 @@ nest g module prisma
 
 #### Generate a Servce ####
 nest g service prisma
+
+#### Remove Dev DB ####
+docker compose rm dev-db -s -f -v
+
+#### Re Deploy the DB Migration ####
+npx prisma migrate deploy
