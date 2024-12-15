@@ -7,12 +7,12 @@ import { AuthController } from './auth/auth.controller';
 
 /// Services ///
 import { AppService } from './app.service';
-import { AuthService } from './auth/auth.service';
 import { PrismaService } from './prisma/prisma.service'
 
 /// Modules ///
 import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { UserModule } from './user/user.module';
 
 
 
@@ -20,13 +20,13 @@ import { PrismaModule } from './prisma/prisma.module';
   imports: [
     AuthModule, 
     PrismaModule,
-    ConfigModule.forRoot({isGlobal : true})
+    ConfigModule.forRoot({isGlobal : true}),
+    UserModule
   ],
   controllers: [
     AppController,
   ],
   providers: [
-    AppService,
-    PrismaService],
+    AppService],
 })
 export class AppModule {}

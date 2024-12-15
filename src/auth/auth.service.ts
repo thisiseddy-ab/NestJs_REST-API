@@ -30,7 +30,7 @@ export class AuthService {
 
     }
 
-    public async signup(dto : AuthDTO, ) : Promise<String> {
+    public async signup(dto : AuthDTO, ) : Promise<{accessToken : string}>  {
         
         const hash = await argon.hash(dto.password)
         
@@ -62,7 +62,7 @@ export class AuthService {
     }
 
 
-    public async signin(dto : AuthDTO) : Promise<Partial<User>> {
+    public async signin(dto : AuthDTO) : Promise<{accessToken : string}> {
 
         const user = await this.prismaService.user.findUnique({
             where : {
@@ -80,13 +80,12 @@ export class AuthService {
             throw new ForbiddenException('Credentials Incorect')
         }
 
-        delete user.hash
-        return user
+        return await this.signToken(user.id,user.email)
 
     }
 
 
-    private async signToken(userId : number, email: string) : Promise<String> {
+    private async signToken(userId : number, email: string) : Promise<{accessToken : string}> {
         
         const payload = {
             sub : userId,
@@ -95,11 +94,15 @@ export class AuthService {
 
         const secret = this.cofigService.get("JWT_SECRET")
 
-        return await this.jwtService.signAsync(payload,{
+        const token = await this.jwtService.signAsync(payload,{
             expiresIn: '15m',
             secret : secret
             }
         )
+
+        return {
+            "accessToken" : token
+        }
     }
 
 

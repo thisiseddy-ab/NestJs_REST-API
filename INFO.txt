@@ -32,6 +32,9 @@ npx prisma studio
 #### Generate a Module ####
 nest g module prisma
 
+#### Generate a Module ####
+nest g controller prisma
+
 #### Generate a Servce ####
 nest g service prisma
 
