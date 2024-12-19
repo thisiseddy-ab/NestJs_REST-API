@@ -1,9 +1,7 @@
 import { Controller,Get,Patch,Req,UseGuards } from '@nestjs/common';
 
-import { JwtGuard } from 'src/auth/guard';
-
-import { Request } from 'express';
-import { GetUser } from 'src/auth/decorator';
+import { JwtGuard} from '../auth/guard';
+import { GetUser } from '../auth/decorator';
 
 /// Primsma Model Types ///
 import { User } from '@prisma/client';

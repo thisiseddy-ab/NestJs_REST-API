@@ -29,6 +29,9 @@ npx prisma migrate dev
 #### Run Prisma Studio ####
 npx prisma studio
 
+#### Run Prisma Studio  with Test ENV ####
+npx cross-env dotenv -e .env.test prisma studio
+
 #### Generate a Module ####
 nest g module prisma
 
